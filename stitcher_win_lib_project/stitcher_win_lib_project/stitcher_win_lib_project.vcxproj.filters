@@ -27,6 +27,9 @@
     <ClInclude Include="Stitcher.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Common\SdustStitcher\SdustStitcher.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -39,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Stitcher.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\SdustStitcher\SdustStitcher.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

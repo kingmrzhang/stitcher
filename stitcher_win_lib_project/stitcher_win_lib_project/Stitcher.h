@@ -5,11 +5,20 @@
 #else
 #define EXPORTS_STITCHER _declspec(dllimport)
 #endif
+
+#include <iostream>
+#include <opencv2/opencv_modules.hpp>
+#include <opencv2/highgui/highgui.hpp>
+
+using namespace std;
+using namespace cv;
+
 class EXPORTS_STITCHER Stitcher
 {
 public:
 	Stitcher();
 	~Stitcher();
-	int Add(int a, int b);
+	Mat stichImg(char path[][100],int size);
+
 };
 
