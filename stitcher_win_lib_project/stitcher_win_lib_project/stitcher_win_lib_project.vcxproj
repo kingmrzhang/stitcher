@@ -138,6 +138,14 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>copy Stitcher.h ..\..\stitcher_win_x64_sdk\include
+copy ..\x64\Release\stitcher_win_lib_project.dll ..\..\stitcher_win_x64_sdk\lib
+copy ..\x64\Release\stitcher_win_lib_project.lib ..\..\stitcher_win_x64_sdk\lib</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>复制头文件及库文件到sdk目录</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -151,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Common\SdustStitcher\SdustStitcher.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
