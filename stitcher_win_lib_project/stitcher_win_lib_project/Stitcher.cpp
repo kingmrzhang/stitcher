@@ -3,27 +3,6 @@
 #include <string>
 #include "../../Common/SdustStitcher/SdustStitcher.h"
 
-#include <sstream>
-#include <vector>
-#include <iterator>
-
-template<typename Out>
-void split(const std::string &s, char delim, Out result) {
-	std::stringstream ss;
-	ss.str(s);
-	std::string item;
-	while (std::getline(ss, item, delim)) {
-		*(result++) = item;
-	}
-}
-
-
-std::vector<std::string> split(const std::string &s, char delim) {
-	std::vector<std::string> elems;
-	split(s, delim, std::back_inserter(elems));
-	return elems;
-}
-
 Stitcher::Stitcher()
 {
 }
@@ -55,17 +34,6 @@ Mat Stitcher::stichImg(char path[][100], int size)
 
 	//stich images in full_img
 	return SdustStitcher().stichImg(full_img);
-}
-
-int Add(int a, int b)
-{
-	return (a + b);
-}
-
-Mat Stitcher_stichImg(char path[][100], int size)
-{
-	Stitcher s;
-	return s.stichImg(path, size);
 }
 
 int stichImg_by_path(char** full_path,int size)

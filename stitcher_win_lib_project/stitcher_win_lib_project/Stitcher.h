@@ -22,8 +22,4 @@ public:
 
 };
 
-extern "C" EXPORTS_STITCHER int Add(int a, int b);
-
-extern "C" EXPORTS_STITCHER Mat Stitcher_stichImg(char path[][100], int size);
-
 extern "C" EXPORTS_STITCHER int stichImg_by_path(char** path,int size);
