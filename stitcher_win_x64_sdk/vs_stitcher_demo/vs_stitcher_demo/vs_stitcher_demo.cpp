@@ -8,19 +8,19 @@
 using namespace std;
 using namespace cv;
 
-#pragma comment(lib, "..\\Debug\\stitcher_win_lib_project.lib")
+#pragma comment(lib, "..\\..\\lib\\stitcher_win_lib_project.lib")
 int _tmain(int argc, _TCHAR* argv[])
 {
 	char path[100][100];
 	int n;
-	cout << "请输入拼接图片的数量" << endl;
+	cout << "Please input the number of row-picture" << endl;
 	cin >> n;
 
 	memset(path, 0, 100*100);
 	for (int i = 1; i <= n; i++)
 	{
-		sprintf_s(path[i*2-2], "..\\..\\..\\images\\7-43\\img (%d).jpg", i);
-		sprintf_s(path[i*2-1], "..\\..\\..\\images\\5-44\\img (%d).jpg", i);
+		sprintf_s(path[i*2-2], "..\\..\\..\\Common\\images\\7-43\\img (%d).jpg", i);
+		sprintf_s(path[i*2-1], "..\\..\\..\\Common\\images\\5-44\\img (%d).jpg", i);
 	}
 
 	cv::setBreakOnError(true);
@@ -29,7 +29,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	int size = n*2;
 	if (size < 2)
 	{
-		cout << "需要更多图片" << endl;
+		cout << "We need more pictures" << endl;
 		return -1;
 	}
 

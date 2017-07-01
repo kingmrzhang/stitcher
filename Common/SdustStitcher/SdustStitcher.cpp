@@ -143,7 +143,7 @@ Mat SdustStitcher::stichImg(vector<Mat> full_img)
         for (int i = 0; i < num_images; i++)
         cout << "R " << i <<":"<<cameras[i].R <<endl;
 
-    cout << "弯曲图像 ... " << endl;
+    cout << "Warp Image ... " << endl;
 #if ENABLE_LOG
     t = getTickCount();
 #endif
@@ -200,7 +200,7 @@ Mat SdustStitcher::stichImg(vector<Mat> full_img)
     masks.clear();
 
     //////图像融合
-    cout << "图像融合..." << endl;
+    cout << "image fusion..." << endl;
 #if ENABLE_LOG
     t = getTickCount();
 #endif

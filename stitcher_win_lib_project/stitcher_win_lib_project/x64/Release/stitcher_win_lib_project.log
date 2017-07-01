@@ -1,6 +1,24 @@
-﻿生成启动时间为 2017/6/30 20:26:02。
+﻿生成启动时间为 2017/7/1 11:35:22。
      1>项目“G:\C++\Project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\stitcher_win_lib_project.vcxproj”在节点 2 上(Build 个目标)。
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STITCHER_WIN_LIB_PROJECT_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Release\stitcher_win_lib_project.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Stitcher.cpp
+         Stitcher.cpp
+     1>g:\c++\project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\../../Common/SdustStitcher/SdustStitcher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>Stitcher.cpp(7): warning C4273: “Stitcher::Stitcher”: dll 链接不一致
+                 g:\c++\project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\Stitcher.h(19) : 参见“{ctor}”的前一个定义
+     1>Stitcher.cpp(12): warning C4273: “Stitcher::~Stitcher”: dll 链接不一致
+                 g:\c++\project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\Stitcher.h(20) : 参见“{dtor}”的前一个定义
+     1>Stitcher.cpp(16): warning C4273: “Stitcher::stichImg”: dll 链接不一致
+                 g:\c++\project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\Stitcher.h(21) : 参见“stichImg”的前一个定义
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.dll" /INCREMENTAL:NO /NOLOGO opencv_objdetect249.lib opencv_ts249.lib opencv_video249.lib opencv_nonfree249.lib opencv_ocl249.lib opencv_photo249.lib opencv_stitching249.lib opencv_superres249.lib opencv_videostab249.lib opencv_calib3d249.lib opencv_contrib249.lib opencv_core249.lib opencv_features2d249.lib opencv_flann249.lib opencv_gpu249.lib opencv_highgui249.lib opencv_imgproc249.lib opencv_legacy249.lib opencv_ml249.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.lib" /MACHINE:X64 /DLL x64\Release\SdustStitcher.obj
+         x64\Release\dllmain.obj
+         x64\Release\stdafx.obj
+         x64\Release\Stitcher.obj
+         x64\Release\stitcher_win_lib_project.obj
+            正在创建库 G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.lib 和对象 G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.exp
+         正在生成代码
+         已完成代码的生成
          stitcher_win_lib_project.vcxproj -> G:\C++\Project\stitcher\stitcher_win_lib_project\x64\Release\stitcher_win_lib_project.dll
        PostBuildEvent:
          copy Stitcher.h ..\..\stitcher_win_x64_sdk\include
@@ -14,4 +32,4 @@
 
 生成成功。
 
-已用时间 00:00:00.10
+已用时间 00:00:03.05
