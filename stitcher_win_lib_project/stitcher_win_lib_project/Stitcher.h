@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef STITCHER_WIN_LIB_PROJECT
+#ifdef STITCHER_WIN_LIB_PROJECT_EXPORTS
 #define EXPORTS_STITCHER _declspec( dllexport )
 #else
 #define EXPORTS_STITCHER _declspec(dllimport)
@@ -22,3 +22,8 @@ public:
 
 };
 
+extern "C" EXPORTS_STITCHER int Add(int a, int b);
+
+extern "C" EXPORTS_STITCHER Mat Stitcher_stichImg(char path[][100], int size);
+
+extern "C" EXPORTS_STITCHER int stichImg_by_path(char** path,int size);

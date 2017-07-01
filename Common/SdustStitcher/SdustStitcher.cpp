@@ -16,7 +16,7 @@ Mat SdustStitcher::stichImg(vector<Mat> full_img)
     double work_scale = 1, seam_scale = 1, compose_scale = 1;
     bool is_work_scale_set = false, is_seam_scale_set = false, is_compose_scale_set = false;
 
-    cout<<"寻找特征点..."<<endl;
+    cout<<"Find features in image..."<<endl;
 #if ENABLE_LOG
     int64 t = getTickCount();
 #endif
