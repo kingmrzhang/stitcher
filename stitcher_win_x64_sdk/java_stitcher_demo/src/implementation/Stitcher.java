@@ -1,6 +1,5 @@
 package implementation;
 
-import org.opencv.core.Mat;
 
 import com.sun.jna.Library;
 import com.sun.jna.Native;

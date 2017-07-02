@@ -2,15 +2,6 @@
 import implementation.Stitcher;
 
 import java.util.Scanner;
-import org.opencv.core.Core;
-import org.opencv.core.CvType;  
-import org.opencv.core.Mat; 
-import org.opencv.core.Size;
-import org.opencv.imgproc.Imgproc;
-
-import com.sun.jna.Library;
-import com.sun.jna.Native;
-import com.sun.jna.Platform;
 
 import java.lang.String;
 
@@ -20,7 +11,6 @@ public class Main {
      */  
     public static void main(String[] args) {  
         // TODO Auto-generated method stub  
-    	System.loadLibrary("opencv_java249");
     	
     	Scanner in = new Scanner(System.in);
 		System.out.print("Please input the number of row-picture:");
