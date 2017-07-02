@@ -19,7 +19,9 @@ public:
 	Stitcher();
 	~Stitcher();
 	Mat stichImg(char path[][100],int size);
-
 };
 
-extern "C" EXPORTS_STITCHER int stichImg_by_path(char** path,int size);
+extern "C" EXPORTS_STITCHER int stichImg_by_path(char** full_path, int size);
+
+extern "C" EXPORTS_STITCHER int stichimg_from_path(char** src_path, int size);
+extern "C" EXPORTS_STITCHER int stichimg_from_path_to_path(char** src_path, int size, char* dst_path);

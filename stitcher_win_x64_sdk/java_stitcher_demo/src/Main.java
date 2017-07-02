@@ -21,9 +21,7 @@ public class Main {
 		for (int i = 1; i <= n; i++)
 		{
 			path[i*2-2] = String.format("..\\..\\Common\\images\\7-43\\img (%d).jpg",i);
-//			System.out.println(path[i*2-2]);
 			path[i*2-1] = String.format("..\\..\\Common\\images\\5-44\\img (%d).jpg", i);
-//			System.out.println(path[i*2-1]);
 		}
 		
 		// Check if have enough images
@@ -33,13 +31,10 @@ public class Main {
 			System.out.println("We need more pictures!");
 			return;
 		}
-		
-		Stitcher.instanceDll.stichImg_by_path(path,size);
-		//System.out.println(Stitcher.instanceDll.Add(1, 2));
-		//Mat result = Stitcher.instanceDll.Stitcher_stitchImg(path, size);
-		
-		//Imgproc.resize(result, result, new Size(640, 480));
-		//ImageViewer imageViewer = new ImageViewer(mat, "µÚÒ»·ùÍ¼Æ¬");
+		//save result image to the local path
+		Stitcher.instanceDll.stichimg_from_path(path,size);
+		//save result image to the custom path
+		Stitcher.instanceDll.stichimg_from_path_to_path(path,size,"..\\..\\Common\\images\\result.jpg");
     }  
   
 } 

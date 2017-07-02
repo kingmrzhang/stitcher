@@ -7,7 +7,7 @@
     - stitcher_win_x64_sdk```win_x64的SDK根目录```
         - lib```win_x64_Release版本的 拼接器 动态链接库```
         - java_stitcher_demo```拼接器的Java_Demo```
-## 二、如何在自己的Qt工程中使用拼接器
+## 二、如何在自己的Java工程中使用拼接器
 > 因为此Demo为Eclipse建立的Java工程，所以所有配置均以Eclipse为例，其他IDE原理相同。
 ### 1、配置Eclipse环境变量
 因为此Demo的代码中中没有涉及OpenCV的部分，所有OpenCV操作都在动态链接库中，所以我们不需要引用OpenCV中Java的包，只需要修改好环境变量，保证Java能调用到拼接器的动态链接库，拼接器能找到OpenCV的动态链接库就行。

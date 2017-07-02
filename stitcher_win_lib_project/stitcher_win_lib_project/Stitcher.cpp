@@ -38,18 +38,40 @@ Mat Stitcher::stichImg(char path[][100], int size)
 
 int stichImg_by_path(char** full_path,int size)
 {
+	return stichimg_from_path(full_path,size);
+}
+
+int stichimg_from_path(char** src_path, int size)
+{
 	//load images
-	system("cd");
 	vector<Mat> full_img(size);
 	for (int i = 0; i < size; i++)
 	{
-		string str = string(full_path[i]);
+		string str = string(src_path[i]);
 		cout << str << endl;
 		full_img[i] = imread(str);
 	}
-
 	Mat result = SdustStitcher().stichImg(full_img);
-
 	imwrite("result.jpg", result);
+	if (result.size <= 0)
+		return 1;
+	return 0;
+}
+
+int stichimg_from_path_to_path(char** src_path, int size, char* dst_path)
+{
+	//load images
+	vector<Mat> full_img(size);
+	for (int i = 0; i < size; i++)
+	{
+		string str = string(src_path[i]);
+		cout << str << endl;
+		full_img[i] = imread(str);
+	}
+	//stitich images
+	Mat result = SdustStitcher().stichImg(full_img);
+	imwrite(string(dst_path), result);
+	if (result.size <= 0)
+		return 1;
 	return 0;
 }
