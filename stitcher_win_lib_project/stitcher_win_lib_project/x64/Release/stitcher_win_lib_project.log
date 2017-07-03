@@ -1,4 +1,4 @@
-﻿生成启动时间为 2017/7/2 9:55:25。
+﻿生成启动时间为 2017/7/3 20:48:58。
      1>项目“G:\C++\Project\stitcher\stitcher_win_lib_project\stitcher_win_lib_project\stitcher_win_lib_project.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D STITCHER_WIN_LIB_PROJECT_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Release\stitcher_win_lib_project.pch" /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt Stitcher.cpp
@@ -18,9 +18,7 @@
          copy Stitcher.h ..\..\stitcher_win_x64_sdk\include
          copy ..\x64\Release\stitcher_win_lib_project.dll ..\..\stitcher_win_x64_sdk\lib
          copy ..\x64\Release\stitcher_win_lib_project.lib ..\..\stitcher_win_x64_sdk\lib
-         copy ..\x64\Release\stitcher_win_lib_project.dll ..\..\stitcher_win_x64_sdk\java_stitcher_demo\bin
          :VCEnd
-         已复制         1 个文件。
          已复制         1 个文件。
          已复制         1 个文件。
          已复制         1 个文件。
@@ -28,4 +26,4 @@
 
 生成成功。
 
-已用时间 00:00:03.81
+已用时间 00:00:03.57

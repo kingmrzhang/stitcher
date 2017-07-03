@@ -28,7 +28,6 @@ Mat Stitcher::stichImg(char path[][100], int size)
 	for (int i = 0; i < size; i++)
 	{
 		string str = string(path[i]);
-		cout << i << str << endl;
 		full_img[i] = imread(str);
 	}
 
@@ -73,5 +72,20 @@ int stichimg_from_path_to_path(char** src_path, int size, char* dst_path)
 	imwrite(string(dst_path), result);
 	if (result.size <= 0)
 		return 1;
+	return 0;
+}
+
+int showImg(char* img_data,int rows,int cols,int cvtype)
+{
+	Mat img(rows, cols, cvtype, img_data);
+	namedWindow("showImg", 1);
+	imshow("showImg", img);
+	waitKey(0);
+	return 0;
+}
+
+int loadImg(char** src_path, int size, char* dst_path)
+{
+
 	return 0;
 }

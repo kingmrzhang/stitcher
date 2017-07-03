@@ -13,11 +13,11 @@
 因为此Demo的代码中中没有涉及OpenCV的部分，所有OpenCV操作都在动态链接库中，所以我们不需要引用OpenCV中Java的包，只需要修改好环境变量，保证Java能调用到拼接器的动态链接库，拼接器能找到OpenCV的动态链接库就行。
 
 Windows 然后按下列顺序搜索 DLL：
-- 1、当前进程的可执行模块所在的目录。
-- 2、当前目录。
-- 3、Windows 系统目录。 GetSystemDirectory 函数检索此目录的路径。
-- 4、Windows 目录。 GetWindowsDirectory 函数检索此目录的路径。
-- 5、PATH 环境变量中列出的目录。
+- （1）当前进程的可执行模块所在的目录。
+- （2）当前目录。
+- （3）Windows 系统目录。 GetSystemDirectory 函数检索此目录的路径。
+- （4）Windows 目录。 GetWindowsDirectory 函数检索此目录的路径。
+- （5）PATH 环境变量中列出的目录。
 
 我们只是运行一个Demo，所以没有必要去修改系统环境变量，我们可以将 拼接的动态链接库位置 和 OpenCV的动态链接库位置 添加到IDE的Path中，只在此Demo中生效。
 
@@ -27,7 +27,7 @@ Windows 然后按下列顺序搜索 DLL：
 ``` path
 ..\lib;..\..\Common\opencv2.4.9\build\x64\vc12\bin;
 ```
-> 这两个路径就是 动态链接库 的路径 
+> 这两个路径就是 动态链接库 的路径
 
 Applay->Run
 
@@ -45,7 +45,7 @@ public interface Stitcher extends Library{
 }
 
 ```
-#### (2)接口调用
+#### （2）接口调用
 调用接口代码如下：
 ``` java
 Stitcher.instanceDll.stichImg_by_path(path,size);
