@@ -28,23 +28,23 @@ public:
 
 private:
     // Default command line args
-    bool preview = false;
-    bool try_gpu = false;
-    double work_megapix = 0.3;//图像的尺寸大小
-    double seam_megapix = 0.1;//拼接缝像素的大小
-    double compose_megapix = -1;//拼接分辨率
-    float conf_thresh = 1.f;//来自同一全景图置信度
-    string ba_cost_func = "ray";
-    string ba_refine_mask = "xxxxx";
-    bool do_wave_correct = true;
-    WaveCorrectKind wave_correct = detail::WAVE_CORRECT_HORIZ;//水平波形校检
-    bool save_graph = false;
+    bool preview;
+    bool try_gpu;
+    double work_megapix;//图像的尺寸大小
+    double seam_megapix;//拼接缝像素的大小
+    double compose_megapix;//拼接分辨率
+    float conf_thresh;//来自同一全景图置信度
+    string ba_cost_func;
+    string ba_refine_mask;
+    bool do_wave_correct;
+    WaveCorrectKind wave_correct;//水平波形校检
+    bool save_graph;
     std::string save_graph_to;
-    int expos_comp_type = ExposureCompensator::GAIN_BLOCKS;//光照补偿方法
-    float match_conf = 0.5f;//特征点检测置信等级，最近邻匹配距离和次近邻匹配距离比值
-    int blend_type = Blender::MULTI_BAND;//融合方法
-    float blend_strength = 5;
-    string result_name = "result.jpg";
+    int expos_comp_type;//光照补偿方法
+    float match_conf;//特征点检测置信等级，最近邻匹配距离和次近邻匹配距离比值
+    int blend_type;//融合方法
+    float blend_strength;
+    string result_name;
 
 
 };

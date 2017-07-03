@@ -1,6 +1,8 @@
 #include <iostream>
+#include <cstdio>
 #include <opencv2/opencv_modules.hpp>
 #include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 #include "../include/stitcher.h"
 
 using namespace std;
@@ -10,17 +12,17 @@ int main(int argc, char *argv[])
 {
     vector<string> img_names;
     int n;
-    cout << "请输入拼接图片的数量" << endl;
+    cout << "Please " << endl;
     cin >> n;
 
     for (int i =1; i <= n; i++)
     {
         char img_path[100] = {0};
-        sprintf(img_path,"../images/7-43/img (%d).jpg",i);
+        sprintf(img_path,"../../Common/images/7-43/img (%d).jpg",i);
         img_names.push_back(String(img_path));
 
         memset(img_path,0,100);
-        sprintf(img_path,"../images/5-44/img (%d).jpg",i);
+        sprintf(img_path,"../../Common/images/5-44/img (%d).jpg",i);
         img_names.push_back(String(img_path));
     }
 

@@ -2,8 +2,23 @@
 
 SdustStitcher::SdustStitcher()
 {
-
-
+    // Default command line args
+    preview = false;
+    try_gpu = false;
+    work_megapix = 0.3;//图像的尺寸大小
+    seam_megapix = 0.1;//拼接缝像素的大小
+    compose_megapix = -1;//拼接分辨率
+    conf_thresh = 1.f;//来自同一全景图置信度
+    ba_cost_func = "ray";
+    ba_refine_mask = "xxxxx";
+    do_wave_correct = true;
+    wave_correct = detail::WAVE_CORRECT_HORIZ;//水平波形校检
+    save_graph = false;
+    expos_comp_type = ExposureCompensator::GAIN_BLOCKS;//光照补偿方法
+    match_conf = 0.5f;//特征点检测置信等级，最近邻匹配距离和次近邻匹配距离比值
+    blend_type = Blender::MULTI_BAND;//融合方法
+    blend_strength = 5;
+    result_name = "result.jpg";
 }
 
 Mat SdustStitcher::stichImg(vector<Mat> full_img)
@@ -14,7 +29,9 @@ Mat SdustStitcher::stichImg(vector<Mat> full_img)
 
     //若按原图片大小进行拼接时，会在曝光补偿时造成内存溢出，所以在计算时缩小图像尺寸变为work_megapix*10000
     double work_scale = 1, seam_scale = 1, compose_scale = 1;
-    bool is_work_scale_set = false, is_seam_scale_set = false, is_compose_scale_set = false;
+    bool    //is_work_scale_set = false,
+            //is_seam_scale_set = false,
+            is_compose_scale_set = false;
 
     cout<<"Find features in image..."<<endl;
 #if ENABLE_LOG

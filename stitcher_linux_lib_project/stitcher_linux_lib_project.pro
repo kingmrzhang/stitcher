@@ -3,7 +3,12 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+HEADERS += \
+    ../Common/SdustStitcher/SdustStitcher.h \
+    stitcher.h
+
 SOURCES += main.cpp \
+    ../Common/SdustStitcher/SdustStitcher.cpp \
     stitcher.cpp
 
 INCLUDEPATH += /usr/local/include/opencv
@@ -19,7 +24,6 @@ LIBS += -lopencv_core \
 -lopencv_legacy \
 -lopencv_flann \
 -lopencv_stitching \
+-fopenmp
 #-lstitcher
 
-HEADERS += \
-    stitcher.h
