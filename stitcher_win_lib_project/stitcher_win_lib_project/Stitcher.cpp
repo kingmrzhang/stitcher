@@ -35,11 +35,6 @@ Mat Stitcher::stichImg(char path[][100], int size)
 	return SdustStitcher().stichImg(full_img);
 }
 
-int stichImg_by_path(char** full_path,int size)
-{
-	return stichimg_from_path(full_path,size);
-}
-
 int stichimg_from_path(char** src_path, int size)
 {
 	//load images
@@ -75,7 +70,29 @@ int stichimg_from_path_to_path(char** src_path, int size, char* dst_path)
 	return 0;
 }
 
-int showImg(char* img_data,int rows,int cols,int cvtype)
+unsigned char*  stichimg_from_mats_to_mat(unsigned char** mats, int* mats_rows, int* mats_cols, int* mats_cvtype, int size,
+	int* mat_rows, int* mat_cols, int* mat_cvtype)
+{
+	vector<Mat> vec_mats;
+	for (int i = 0; i < size; i++) {
+		Mat img(mats_rows[i], mats_cols[i], mats_cvtype[i], mats[i]);
+		vec_mats.push_back(img);
+	}
+
+	Mat img = SdustStitcher().stichImg(vec_mats);
+
+	(*mat_rows) = img.rows;
+	(*mat_cols) = img.cols;
+	(*mat_cvtype) = img.type();
+	unsigned char* img_data = (unsigned char*)malloc(img.total() * img.channels());
+	if (img_data == NULL)
+		cout << "no memory" << endl;
+	memcpy(img_data, img.data, img.total() * img.channels());
+
+	return img_data;
+}
+
+int show_img(unsigned char* img_data,int rows,int cols,int cvtype)
 {
 	Mat img(rows, cols, cvtype, img_data);
 	namedWindow("showImg", 1);
@@ -84,8 +101,23 @@ int showImg(char* img_data,int rows,int cols,int cvtype)
 	return 0;
 }
 
-int loadImg(char** src_path, int size, char* dst_path)
+unsigned char* load_img(char* img_path, int* rows, int* cols, int* cvtype)
 {
+	Mat img = imread(string(img_path));
+	(*rows) = img.rows;
+	(*cols) = img.cols;
+	(*cvtype) = img.type();
+	
+	unsigned char* img_data = (unsigned char*)malloc(img.total() * img.channels());
+	if (img_data == NULL)
+		cout << "no memory" << endl;
+	
+	memcpy(img_data, img.data,img.total() * img.channels());
 
-	return 0;
+	return img_data;
+}
+
+void free_img(char* p_img)
+{
+	free(p_img);
 }

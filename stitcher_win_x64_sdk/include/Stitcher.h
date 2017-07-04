@@ -27,5 +27,6 @@ extern "C" EXPORTS_STITCHER int stichimg_from_path(char** src_path, int size);
 extern "C" EXPORTS_STITCHER int stichimg_from_path_to_path(char** src_path, int size, char* dst_path);
 
 //Interfaces for test
-extern "C" EXPORTS_STITCHER int showImg(char* img_data, int rows, int cols, int cvtype);
-extern "C" EXPORTS_STITCHER int loadImg(char** src_path, int size, char* dst_path);
+extern "C" EXPORTS_STITCHER int show_img(unsigned char* img_data, int rows, int cols, int cvtype);
+extern "C" EXPORTS_STITCHER unsigned char* load_img(char* img_path,int* rows,int* cols,int* cvtype);
+extern "C" EXPORTS_STITCHER void free_img(char* p_img);
