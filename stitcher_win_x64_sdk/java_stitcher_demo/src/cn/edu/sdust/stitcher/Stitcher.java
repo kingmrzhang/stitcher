@@ -59,24 +59,33 @@ public class Stitcher {
 			return new Mat(0,0,0);
 		}
 		
-		byte[][] mats_data = new byte[size][];
 		int[] mats_rows = new int[size];
 		int[] mats_cols = new int[size];
 		int[] mats_cvtype = new int[size];
-		for(int i=0;i<size;i++){
-			mats_data[i] = new byte[(int) (mats[i].total() * mats[i].channels())];
-	     	mats[i].get(0,0,mats_data[i]);
-	     	mats_rows[i] = mats[i].rows();
+		int mats_total = 0;
+		for(int i=0;i<size;i++) {
+			mats_rows[i] = mats[i].rows();
 	     	mats_cols[i] = mats[i].cols();
 	     	mats_cvtype[i] = mats[i].type();
+	     	mats_total += (mats[i].total() * mats[i].channels());
+		}
+		byte[] mats_data = new byte[mats_total];
+		int current_offset = 0;
+		for(int i=0;i<size;i++){
+			byte[] img_data = new byte[(int)mats[i].total() * mats[i].channels()];
+	     	mats[i].get(0,0,img_data);
+	     	for(int j=0;j<img_data.length;j++) {
+	     		mats_data[current_offset+j] = img_data[j];
+	     	}
+	     	current_offset += img_data.length;
 		}
 		
 		int mat_rows[] = {0};
     	int mat_cols[] = {0};
     	int mat_cvtype[] = {0};
-		Pointer p_data = StitcherItf.instanceDll.stichimg_from_mats_to_mat(
+		Pointer p_data = StitcherItf.instanceDll.stitchimg_from_mats_to_mat(
 				mats_data,  mats_rows,  mats_cols,  mats_cvtype, size,
-				 mat_rows,  mat_cols,  mat_cvtype);
+				mat_rows,  mat_cols,  mat_cvtype);
 
      	byte[] mat_data = p_data.getByteArray(0, 
      			mat_rows[0]*mat_cols[0]* CvType.channels(mat_cvtype[0]));
@@ -87,9 +96,18 @@ public class Stitcher {
      	StitcherItf.instanceDll.free_img(p_data);
      	
      	return img;
-		//save result image to the local path
-//		StitcherItf.instanceDll.stichimg_from_path(path,size);
-		//save result image to the custom path
-//		StitcherItf.instanceDll.stichimg_from_path_to_path(path,size,"..\\..\\Common\\images\\result.jpg");
+    }
+    
+    /**
+     * 从指定路径获取待拼接的图片
+     * @param src_paths
+     * @param dst_path 结果保存路径，默认"result.jpg"
+     * @return
+     */
+    public int stitchImg(String[] src_paths,String dst_path) {
+    	if (dst_path.equals(""))
+    		dst_path = "result.jpg";
+    	StitcherItf.instanceDll.stitchimg_from_path_to_path(src_paths,src_paths.length,dst_path);
+    	return 0;
     }
 }

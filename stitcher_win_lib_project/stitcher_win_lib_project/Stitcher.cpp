@@ -12,7 +12,7 @@ Stitcher::~Stitcher()
 {
 }
 
-Mat Stitcher::stichImg(char path[][100], int size)
+Mat Stitcher::stitchImg(char path[][100], int size)
 {
 	cv::setBreakOnError(true);
 
@@ -35,7 +35,7 @@ Mat Stitcher::stichImg(char path[][100], int size)
 	return SdustStitcher().stichImg(full_img);
 }
 
-int stichimg_from_path(char** src_path, int size)
+int stitchimg_from_path(char** src_path, int size)
 {
 	//load images
 	vector<Mat> full_img(size);
@@ -52,7 +52,7 @@ int stichimg_from_path(char** src_path, int size)
 	return 0;
 }
 
-int stichimg_from_path_to_path(char** src_path, int size, char* dst_path)
+int stitchimg_from_path_to_path(char** src_path, int size, char* dst_path)
 {
 	//load images
 	vector<Mat> full_img(size);
@@ -70,13 +70,15 @@ int stichimg_from_path_to_path(char** src_path, int size, char* dst_path)
 	return 0;
 }
 
-unsigned char*  stichimg_from_mats_to_mat(unsigned char** mats, int* mats_rows, int* mats_cols, int* mats_cvtype, int size,
+unsigned char*  stitchimg_from_mats_to_mat(unsigned char* mats, int* mats_rows, int* mats_cols, int* mats_cvtype, int size,
 	int* mat_rows, int* mat_cols, int* mat_cvtype)
 {
 	vector<Mat> vec_mats;
+	int current_offset = 0;
 	for (int i = 0; i < size; i++) {
-		Mat img(mats_rows[i], mats_cols[i], mats_cvtype[i], mats[i]);
+		Mat img(mats_rows[i], mats_cols[i], mats_cvtype[i], mats+current_offset);
 		vec_mats.push_back(img);
+		current_offset += (img.total() * img.channels());
 	}
 
 	Mat img = SdustStitcher().stichImg(vec_mats);
