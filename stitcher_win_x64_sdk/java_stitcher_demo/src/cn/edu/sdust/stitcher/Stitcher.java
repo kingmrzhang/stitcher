@@ -39,10 +39,10 @@ public class Stitcher {
 	 * 调用拼接器动态链接库 显示 Mat
 	 * @param image
 	 */
-    public void showImg(Mat image){
+    public void showImg(Mat image,String name){
     	byte buff[] = new byte[(int) (image.total() * image.channels())];
      	image.get(0,0,buff);
-     	StitcherItf.instanceDll.show_img(buff,image.rows(),image.cols(),image.type());
+     	StitcherItf.instanceDll.show_img(buff,image.rows(),image.cols(),image.type(),name);
     }
     
     /**
@@ -107,7 +107,30 @@ public class Stitcher {
     public int stitchImg(String[] src_paths,String dst_path) {
     	if (dst_path.equals(""))
     		dst_path = "result.jpg";
-    	StitcherItf.instanceDll.stitchimg_from_path_to_path(src_paths,src_paths.length,dst_path);
+    	StitcherItf.instanceDll.stitchimg_from_paths_to_path(src_paths,src_paths.length,dst_path);
     	return 0;
+    }
+    
+    /**
+     * 拼接图片
+     * @param src_path 待拼接的图片路径
+     * @return 拼接完成后的Mat
+     */
+    public Mat stitchImg(String[] src_paths) {
+		int mat_rows[] = {0};
+    	int mat_cols[] = {0};
+    	int mat_cvtype[] = {0};
+		Pointer p_data = StitcherItf.instanceDll.stitchimg_from_paths_to_mat(
+				src_paths,src_paths.length,mat_rows,mat_cols,mat_cvtype);
+
+     	byte[] mat_data = p_data.getByteArray(0, 
+     			mat_rows[0]*mat_cols[0]* CvType.channels(mat_cvtype[0]));
+
+     	Mat img = new Mat(mat_rows[0],mat_cols[0],mat_cvtype[0]);
+     	img.put(0,0, mat_data);
+     	//free the data memory in dll
+     	StitcherItf.instanceDll.free_img(p_data);
+     	
+     	return img;
     }
 }
