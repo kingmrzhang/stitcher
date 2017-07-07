@@ -27,9 +27,9 @@ public class Main {
 		Mat mats[] = new Mat[size];
 		for (int i = 1; i <= n; i++)
 		{
-			paths[i*2-2] = String.format("..\\Common\\images\\7-43\\img (%d).jpg",i);
+			paths[i*2-2] = String.format("..\\..\\Common\\images\\7-43\\img (%d).jpg",i);
 			mats[i*2-2] = stitcher.loadImg(paths[i*2-2]);
-			paths[i*2-1] = String.format("..\\Common\\images\\5-44\\img (%d).jpg", i);
+			paths[i*2-1] = String.format("..\\..\\Common\\images\\5-44\\img (%d).jpg", i);
 			mats[i*2-1] = stitcher.loadImg(paths[i*2-1]);
 		}
 		

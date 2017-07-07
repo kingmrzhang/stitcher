@@ -14,7 +14,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/stiticher.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="jar_import_test/lib/x64"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="java_stitcher_demo/lib/x64"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
