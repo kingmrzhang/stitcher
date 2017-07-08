@@ -32,7 +32,7 @@ Value填写如下相对路径：
 ```
 > 这两个路径就是 动态链接库 的路径
 
-![](imgs\path.png)
+![](imgs/path.png)
 Applay->Run
 
 success!
@@ -45,6 +45,6 @@ success!
 ### 3、将Java接口导出为jar包
 工程右键->Export...->Java->JAR file->Next
 
-![](imgs\export.png)
+![](imgs/export.png)
 
 按图中所示将StitcherItf和Stitcher打包到Demo工程目录的lib中，供Demo调用。
