@@ -32,20 +32,19 @@ Value填写如下相对路径：
 ```
 > 这两个路径就是 动态链接库 的路径
 
-![](imgs/path.png)
+![](imgs\path.png)
 Applay->Run
 
 success!
 ### 2、代码 介绍
+具体接口参数参见代码注释。
 #### （1）接口实现（StitcherItf.java）
 在这个类中对动态链接库中的接口做了对应，通过jna实现调用。
 #### （2）接口封装（Stitcher.java）
-调用接口代码如下：
-``` java
-Stitcher.instanceDll.stichImg_by_path(path,size);
-```
-形参：String[]待拼接图片路径列表，int图片总数。
+在这个类中将StitcherItf中实现的接口进一步封装，把Mat类型转换成接口可以传输的类型。
+### 3、将Java接口导出为jar包
+工程右键->Export...->Java->JAR file->Next
 
-返回值：int是否执行成功，成功返回0
+![](imgs\export.png)
 
-执行结果保存在Demo根目录下的result.jpg中。
+按图中所示将StitcherItf和Stitcher打包到Demo工程目录的lib中，供Demo调用。
