@@ -32,7 +32,7 @@ Value填写如下相对路径：
 ```
 > 这两个路径就是 动态链接库 的路径
 
-![](.png)
+![](imgs/path.png)
 Applay->Run
 
 success!
